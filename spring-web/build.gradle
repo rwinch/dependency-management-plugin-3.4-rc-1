@@ -1,0 +1,17 @@
+apply plugin: "propdeps"
+apply plugin: "java"
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement {
+	imports {
+		mavenBom "io.projectreactor:reactor-bom:Aluminium-BUILD-SNAPSHOT"
+	}
+}
+
+repositories {
+	maven { url "https://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+	optional("io.projectreactor.ipc:reactor-netty")
+}
